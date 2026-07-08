@@ -38,3 +38,53 @@ python smart_translator.py
 ```
 
 Hold your hand up to the camera. The translated gesture and the AI confidence score will be displayed on the screen.
+
+## 🛠️ Active Learning (Teach the AI)
+
+If the AI flickers or predicts the wrong gesture, you can improve it without stopping the camera.
+
+1. Hold your hand in the exact position where the AI is making an incorrect prediction.
+2. Wait until the confidence text turns **red**.
+3. Press the corresponding hotkey to label the current frame:
+
+| Key | Gesture |
+|-----|---------|
+| `y` | Yes |
+| `n` | No |
+| `s` | Stop |
+| `t` | Thumbs Up |
+
+The application will instantly save the current frame's **63 hand landmark coordinates (X, Y, Z)** to `sign_dataset.csv`.
+
+After collecting samples:
+
+```bash
+python train_model.py
+```
+
+This retrains the Random Forest model using your newly collected data, making the AI more accurate for your hand and environment.
+
+---
+
+## 📂 Project Structure
+
+```text
+smart-sign-translator/
+│
+├── smart_translator.py    # Live camera translator with Active Learning
+├── data_collector.py      # Collects large gesture datasets
+├── train_model.py         # Trains the Random Forest model
+├── starter_model.pkl      # Pre-trained gesture recognition model
+├── sign_dataset.csv       # Dataset generated during Active Learning
+└── README.md
+```
+
+---
+
+## 💻 Tech Stack
+
+- **Python**
+- **OpenCV** – Video capture and on-screen visualization
+- **MediaPipe** – 3D hand landmark detection and tracking
+- **Scikit-Learn** – Random Forest machine learning model
+- **Pandas** – Data processing and dataset management
