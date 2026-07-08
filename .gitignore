@@ -1,0 +1,16 @@
+# Environments
+sign_env/
+venv/
+env/
+
+# Python Cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Datasets (Keep user data local)
+*.csv
+
+# OS generated files
+.DS_Store
+Thumbs.db
