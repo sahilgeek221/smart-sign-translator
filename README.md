@@ -13,9 +13,28 @@ Unlike standard static models that break when a new user tries them (due to diff
 
 ## 🚀 Quick Start
 
-### 1. Installation
-Clone this repository and set up a virtual environment (Python 3.10 or 3.11 recommended):
+## Installation
+
+Clone this repository and install the required dependencies (Python 3.10 or 3.11 recommended):
+
 ```bash
-git clone [https://github.com/YOUR_USERNAME/smart-sign-translator.git](https://github.com/YOUR_USERNAME/smart-sign-translator.git)
+git clone https://github.com/YOUR_USERNAME/smart-sign-translator.git
 cd smart-sign-translator
 pip install opencv-python mediapipe pandas scikit-learn
+```
+
+## Run the Live Translator
+
+The repository includes a pre-trained `starter_model.pkl` that recognizes the following gestures:
+- Yes
+- No
+- Stop
+- Thumbs Up
+
+Run the application:
+
+```bash
+python smart_translator.py
+```
+
+Hold your hand up to the camera. The translated gesture and the AI confidence score will be displayed on the screen.
